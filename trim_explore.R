@@ -221,6 +221,16 @@ f1_cdiff
 
 
 ### And a plot comparing different pipelines' performance in moderate-cov WES
+aggregate(METRIC.F1_Score~CallerFilter+Type, caller_data, median)
+e_f1 <- ggplot(caller_data, aes(x=CallerFilter, y=METRIC.F1_Score, 
+                                   fill=CallerFilter)) +
+  geom_boxplot() + theme_bw() + scale_fill_brewer(palette='Set3') +
+  facet_wrap(~Type, ncol=2) +  
+  theme(axis.text.x=element_blank(), legend.position = 'bottom') +
+  guides(fill=guide_legend(nrow=3, byrow=TRUE))
+print(e_f1)
+
+aggregate(METRIC.F1_Score~CallerFilter+Type, caller_le_data, median)
 le_f1 <- ggplot(caller_le_data, aes(x=CallerFilter, y=METRIC.F1_Score, 
                                     fill=CallerFilter)) +
   geom_boxplot() + theme_bw() + scale_fill_brewer(palette='Set3') +
