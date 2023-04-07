@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for i in *LOWEXOME*.dedup.bam
+do
+	sleep 1
+	while [ $( docker ps | grep octopus | wc -l ) -ge 6 ] ; do sleep 1 ; done
+	/mnt/data/callers_proj/preprocessing_comp/call_octopus.sh $i &
+done
