@@ -2,7 +2,7 @@
 
 This repository contains data and code pertinent to the analysis of adapter trimming effects on variant calling
 
-![The workflow of the main analysis](./TP_count.png)
+![The workflow of the main analysis](./TP_counts.png)
 
 The repository contains the following files and folders:
 
